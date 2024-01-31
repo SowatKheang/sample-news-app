@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_responsive_framework/flutter_responsive_framework.dart';
 
 class NewsItemWidget extends StatelessWidget {
   const NewsItemWidget({super.key});
@@ -23,16 +24,20 @@ class NewsItemWidget extends StatelessWidget {
                 "https://miro.medium.com/v2/resize:fit:1200/1*548nO8r4GedmGNTuGN4N6w.png"
               ),
               const SizedBox(height: 8),
-              const Text(
+              Text(
                 "Google News",
-                style: TextStyle(color: Colors.green, fontSize: 18, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  color: Colors.green, 
+                  fontSize: 16.px, 
+                  fontWeight: FontWeight.bold
+                ),
               ),
               const SizedBox(height: 8),
               Text(
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy",
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
-                style: TextStyle(color: Colors.blue[800]!, fontSize: 16, fontWeight: FontWeight.bold),
+                style: TextStyle(color: Colors.blue[800]!, fontSize: 14.px, fontWeight: FontWeight.bold),
               ),
             ],
           ),
