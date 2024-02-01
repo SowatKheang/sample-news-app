@@ -64,6 +64,7 @@ class _NewsApplicationState extends State<NewsApplication> {
     if (DeviceHelper.getInstance().isMobile) {
       return _buildScreen();
     }
+
     return Row(
       children: [
         NavigationRail(
@@ -75,20 +76,21 @@ class _NewsApplicationState extends State<NewsApplication> {
           },
           destinations: const [
             NavigationRailDestination(
-              icon: Icon(Icons.newspaper),
+              icon: Icon( Icons.newspaper),
               label: Text('')
             ),
             NavigationRailDestination(
-              icon: Icon(Icons.favorite),
+              icon: Icon( Icons.favorite),
               label: Text('')
             ),
-          ],
+          ], 
         ),
         Expanded(
           child: _buildScreen()
         ),
       ],
     );
+
   }
 
   Widget _buildScreen() {

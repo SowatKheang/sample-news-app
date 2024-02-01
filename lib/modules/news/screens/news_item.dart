@@ -2,8 +2,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive_framework/flutter_responsive_framework.dart';
 
+import '../model/news_model.dart';
+
 class NewsItemWidget extends StatelessWidget {
-  const NewsItemWidget({super.key});
+
+  final NewsModel newsModel;
+  const NewsItemWidget(this.newsModel, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,23 +25,27 @@ class NewsItemWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Image.network(
-                "https://miro.medium.com/v2/resize:fit:1200/1*548nO8r4GedmGNTuGN4N6w.png"
+                newsModel.jetpackFeaturedMediaUrl!,
               ),
               const SizedBox(height: 8),
               Text(
-                "Google News",
+                newsModel.title?.rendered ?? '',
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   color: Colors.green, 
-                  fontSize: 16.px, 
+                  fontSize: 18.px, 
                   fontWeight: FontWeight.bold
                 ),
               ),
               const SizedBox(height: 8),
-              Text(
-                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy",
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(color: Colors.blue[800]!, fontSize: 14.px, fontWeight: FontWeight.bold),
+              Expanded(
+                child: Text(
+                  newsModel.content?.rendered ?? '',
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(color: Colors.blue[800]!, fontSize: 16.px, fontWeight: FontWeight.bold),
+                ),
               ),
             ],
           ),
